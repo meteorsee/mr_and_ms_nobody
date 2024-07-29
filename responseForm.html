@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    form { display: flex; flex-direction: column; }
+    label, textarea { margin: 5px 0; }
+    button { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h3><?= action === 'approve' ? 'Approve Expense' : 'Reject Expense' ?></h3>
+  <form action="<?= ScriptApp.getService().getUrl() ?>" method="POST">
+    <input type="hidden" name="row" value="<?= row ?>">
+    <input type="hidden" name="action" value="<?= action ?>">
+    <label for="comments">Manager Comments:</label>
+    <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+    <button type="submit"><?= action === 'approve' ? 'Approve' : 'Reject' ?></button>
+  </form>
+</body>
+</html>
